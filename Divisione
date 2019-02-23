@@ -1,28 +1,28 @@
-  inp 
-        sta a
-        inp
-        sta b
-prova   lda a
-        sub b
-        brp esegui
-        add b
-        sta resto
-quit    lda ris
-        out
-        lda resto
-        out
-        hlt
-esegui  lda a
-        sub b
-        sta a
-        lda one
-        add ris
-        sta ris
-        lda a
-        brz quit
-        bra prova
-a       dat
-b       dat
-one     dat 1
-ris     dat 0
-resto   dat 
+        INP 
+        STA A
+        INP
+        STA B
+prova   LDA A
+        SUB B
+        BRP ESEGUI
+        ADD B
+        STA RESTO
+quit    LDA RIS
+        OUT
+        LDA RESTO
+        OUT 
+        HLT
+esegui  LDA A
+        SUB B
+        STA A
+        LDA ONE
+        ADD RIS
+        STA RIS
+        LDA A
+        BRZ QUIT
+        BRA PROVA
+A       DAT
+B       DAT
+ONE     DAT 1
+RIS     DAT 0
+RESTO   DAT

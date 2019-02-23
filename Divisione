@@ -1,28 +1,28 @@
-        INP 
-        STA A
-        INP
-        STA B
-prova   LDA A
-        SUB B
-        BRP ESEGUI
-        ADD B
-        STA RESTO
-quit    LDA RIS
-        OUT
-        LDA RESTO
-        OUT 
-        HLT
-esegui  LDA A
-        SUB B
-        STA A
-        LDA ONE
-        ADD RIS
-        STA RIS
-        LDA A
-        BRZ QUIT
-        BRA PROVA
-A       DAT
-B       DAT
-ONE     DAT 1
-RIS     DAT 0
-RESTO   DAT
+      INP             ;Acquisisco un input
+        STA a           ;Salvo l'input in a
+        INP             ;Acquisisco un input
+        STA b           ;Salvo l'input in b
+prova   LDA a           ;Carico a nell'accumulatore
+        SUB b           ;Sottraggo all'accumulatore
+        BRP esegui      ;Se positivo salto ad esegui
+        ADD b           ;Aggiungo b all'accumulatore
+        STA resto       ;Salvo l'acc in resto
+quit    LDA ris         ;Carico ris
+        OUT             ;Mando in output
+        LDA resto       ;Carico resto
+        OUT             ;Mando in output
+        HLT             ;Finisce il programma
+esegui  LDA a           ;Carico a
+        SUB b           ;Sottraggo b ad a
+        STA a           ;Salvo in a
+        LDA one         ;Carico one
+        ADD ris         ;Aggiungo acc a ris
+        STA ris         ;Salvo in ris
+        LDA a           ;Carico a
+        BRZ quit        ;Se acc equivale a 0 salto a quit
+        BRA prova       ;Salto sempre a prova
+a       DAT
+b       DAT
+one     DAT 1
+ris     DAT 0
+resto   DAT 
